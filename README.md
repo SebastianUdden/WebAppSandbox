@@ -15,7 +15,7 @@ A template with the infrastructure for React, Redux, React Router, Mocha and Web
 * C++ Compiler (Often installed with [Visual Studio](https://www.visualstudio.com/en-US/products/visual-studio-express-vs))
 
 ## Setup
-* npm run setup
+* npm install
 
 ## Deployment
 * npm start -s

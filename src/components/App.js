@@ -5,7 +5,10 @@ import { Switch, NavLink, Route } from 'react-router-dom';
 import HomePage from './home/HomePage';
 import AboutPage from './about/AboutPage';
 import NotFoundPage from './notFound/NotFoundPage';
-
+import Sebbe from './sandbox/Sebbe';
+import Henke from './sandbox/Henke';
+import Alex from './sandbox/Alex';
+import Victor from './sandbox/Victor';
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
@@ -20,10 +23,22 @@ class App extends React.Component {
           <NavLink exact to="/" activeStyle={choosenStyle}>Home</NavLink>
           {' | '}
           <NavLink exact to="/about" activeStyle={choosenStyle}>About</NavLink>
+          {' | '}
+          <NavLink exact to="/sandbox/Alex" activeStyle={choosenStyle}>Alex</NavLink>
+          {' | '}
+          <NavLink exact to="/sandbox/Henke" activeStyle={choosenStyle}>Henke</NavLink>
+          {' | '}
+          <NavLink exact to="/sandbox/Sebbe" activeStyle={choosenStyle}>Sebbe</NavLink>
+          {' | '}
+          <NavLink exact to="/sandbox/Victor" activeStyle={choosenStyle}>Victor</NavLink>
         </div>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/about" component={AboutPage} />
+          <Route exact path="/sandbox/Sebbe" component={Sebbe} />
+          <Route exact path="/sandbox/Henke" component={Henke} />
+          <Route exact path="/sandbox/Alex" component={Alex} />
+          <Route exact path="/sandbox/Victor" component={Victor} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
