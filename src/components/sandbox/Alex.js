@@ -6,7 +6,7 @@ export default class Alex extends React.Component {
     return (
       <div>
         <h1>{hello} Alex</h1>
-        <p>Fria tester av JSX inom denna component!</p>
+        <p>Fria tester av JSX inom denna component!!</p>
       </div>
     );
   }
