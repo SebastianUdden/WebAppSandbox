@@ -8,6 +8,7 @@ import NotFoundPage from './notFound/NotFoundPage';
 import Sebbe from './sandbox/Sebbe';
 import Henke from './sandbox/Henke';
 import Alex from './sandbox/Alex';
+import Peter from './sandbox/Peter';
 import Viktor from './sandbox/Viktor';
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
@@ -28,6 +29,8 @@ class App extends React.Component {
           {' | '}
           <NavLink exact to="/sandbox/Henke" activeStyle={choosenStyle}>Henke</NavLink>
           {' | '}
+          <NavLink exact to="/sandbox/Peter" activeStyle={choosenStyle}>Peter</NavLink>
+          {' | '}
           <NavLink exact to="/sandbox/Sebbe" activeStyle={choosenStyle}>Sebbe</NavLink>
           {' | '}
           <NavLink exact to="/sandbox/Viktor" activeStyle={choosenStyle}>Viktor</NavLink>
@@ -38,6 +41,7 @@ class App extends React.Component {
           <Route exact path="/sandbox/Sebbe" component={Sebbe} />
           <Route exact path="/sandbox/Henke" component={Henke} />
           <Route exact path="/sandbox/Alex" component={Alex} />
+          <Route exact path="/sandbox/Peter" component={Peter} />
           <Route exact path="/sandbox/Viktor" component={Viktor} />
           <Route component={NotFoundPage} />
         </Switch>
