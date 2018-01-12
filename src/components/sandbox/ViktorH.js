@@ -17,7 +17,7 @@ export default class ViktorH extends React.Component {
     }
     return (
       <div>
-        <h1>Välkommen Viktor H,</h1>
+        <h1>Välkommen Viktor Högberg,</h1>
         <h4>till denna upplaga av <span style={hackathon}>Hackaton!</span></h4>
         <ul>
           <li><span style={bolder}>Tid:</span> {info.time}</li>
