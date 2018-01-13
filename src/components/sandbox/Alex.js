@@ -14,7 +14,7 @@ export default class Alex extends React.Component {
       time: '10-22',
       food: 'Pizza',
       beer: 'Frivilligt',
-    }
+    };
     return (
       <div>
         <h1>Välkommen Alex,</h1>
