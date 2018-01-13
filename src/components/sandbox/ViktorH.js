@@ -1,5 +1,5 @@
 import React from 'react';
-// import SendToTeamsButton from './tools/SendToTeamsButton';
+import SendToTeamsButton from './tools/SendToTeamsButton';
 import GenerateList from './tools/List';
 import Game from './tools/TicTacToe/tictactoe';
 
