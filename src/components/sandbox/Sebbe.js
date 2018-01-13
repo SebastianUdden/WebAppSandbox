@@ -6,6 +6,7 @@ export default class Sebbe extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      value: 0,
       listEntries: [
         { property: "tid", value: "10-22" },
         { property: "mat", value: "pizza" },
@@ -13,6 +14,25 @@ export default class Sebbe extends React.Component {
       ]
     };
   }
+
+  handleChangeStart = () => {
+    console.log('Change event started');
+  };
+
+  handleChange = value => {
+    this.setState({
+      value: value,
+      listEntries: [
+        { property: "tid", value: "10-22" },
+        { property: "mat", value: "pizza" },
+        { property: "öl", value: "frivilligt" },
+      ]
+    });
+  };
+
+  handleChangeComplete = () => {
+    console.log('Change event completed')
+  };
 
   SaveToList() {
     const currentListEntries = this.state.listEntries;
@@ -33,6 +53,11 @@ export default class Sebbe extends React.Component {
     }
 
   }
+
+  SliderInput () {
+    document.getElementById("demo").innerHTML = document.getElementById("myRange").value;
+  }
+
   render() {
     let hackathon = {
       color: 'Fuchsia',
@@ -53,6 +78,14 @@ export default class Sebbe extends React.Component {
       color: 'Red',
       fontSize: '18px'
     };
+    let size = {
+      fontSize: '25px',
+      width: '30px',
+      marginRight: '5px',
+      backgroundColor: 'Green',
+      padding: '5px',
+      borderRadius: '5px'
+    };
 
     return (
       <div>
@@ -66,7 +99,10 @@ export default class Sebbe extends React.Component {
         <p>Fria tester av JSX och React inom denna component...</p>
         <hr />
         <h4>Följ med på en oförglömglig resa till <span style={hackathon}>kodförståelse</span> med årets första <span style={hackathon}>hackaton</span></h4>
-        <img width="1000px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCTX4HgyT3L9Ul8Dm1Jicsrg2ZO9uPHIxyuGXlTO5cXjps42UfYw" />
+        <button style={size} onClick={() => this.handleChange(this.state.value + 10)}>+</button>
+        <button style={size} onClick={() => this.handleChange(this.state.value - 10)}>-</button>
+        <h2>{this.state.value}</h2>
+        <img width={this.state.value} src="https://cdn.pixabay.com/photo/2016/08/17/22/22/pow-1601674_960_720.png" />
       </div>
     );
   }
