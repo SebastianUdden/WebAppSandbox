@@ -2,6 +2,7 @@ import React from 'react';
 import SendToTeamsButton from './tools/SendToTeamsButton';
 import GenerateList from './tools/List';
 import Game from './tools/TicTacToe/tictactoe';
+import './vhg.css';
 
 export default class ViktorH extends React.Component {
   constructor(props) {
@@ -11,20 +12,31 @@ export default class ViktorH extends React.Component {
         { property: "tid", value: "10-22" },
         { property: "mat", value: "pizza" },
         { property: "öl", value: "frivilligt" },
-      ]   
+      ],
+      inputFormValue: "",
     };
+  }
+
+  handleChange() {
+    let inputFormValue = document.getElementById("inputForm").value
+    let currentState = this.state;
+    this.setState(Object.assign({}, currentState, {
+      inputFormValue: inputFormValue,
+    }));
   }
 
   SaveToList() {
     const currentListEntries = this.state.listEntries;
     if (this.property.value !== "" && this.value.value !== "" && this.property.value && this.value.value && !currentListEntries.some(x => x.property === this.property.value)) {
       currentListEntries.push({ property: this.property.value, value: this.value.value });
-      this.setState({
+
+      let currentState = this.state;
+      this.setState(Object.assign({}, currentState, {
         listEntries: currentListEntries
-      });
+      }));
       document.getElementById("listError").hidden = true;
     }
-    else if(currentListEntries.some(x => x.property === this.property.value)) {
+    else if (currentListEntries.some(x => x.property === this.property.value)) {
       document.getElementById("listError").innerText = "Same property already found";
       document.getElementById("listError").hidden = false;
     }
@@ -63,17 +75,21 @@ export default class ViktorH extends React.Component {
         <input id="inputValue" style={inputStyle} type="text" className="form form-control" placeholder="Value" ref={input => this.value = input} />
         <button id="saveListEntry" style={button} className="btn btn-success" onClick={() => this.SaveToList()}>Save</button>
         <GenerateList myList={this.state.listEntries} />
-        <p id = "listError" style={warning} hidden> Warning: Error fix </p>
-      <p>Fria tester av JSX och React inom denna component...</p>
-      <hr />
-      <h4>Följ med på en oförglömglig resa till <span style={hackathon}>kodförståelse</span> med årets första <span style={hackathon}>hackaton</span></h4>
-      <input id="inputForm" type="text" className="form form-control" style={inputStyle} ref={input => this.message = input} />
-      <SendToTeamsButton myMessage={this.message.value}/>
-      <hr />
-      <Game/>
-      <hr />
-      <img width="1000px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCTX4HgyT3L9Ul8Dm1Jicsrg2ZO9uPHIxyuGXlTO5cXjps42UfYw" />
-      </div >
+        <p id="listError" style={warning} hidden> Warning: Error fix </p>
+        <p>Fria tester av JSX och React inom denna component...</p>
+        <hr />
+        <h4>Följ med på en oförglömglig resa till <span style={hackathon}>kodförståelse</span> med årets första <span style={hackathon}>hackaton</span></h4>
+        <hr />
+        <div>
+          <input id="inputForm" type="text" className="inputText" style={inputStyle} onChange={() => this.handleChange()} required />
+          <span className="floating-label">Message to teams</span>
+        </div>
+        <SendToTeamsButton myMessage={this.state.inputFormValue} />
+        <hr />
+        <Game />
+        <hr />
+        <img width="1000px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCTX4HgyT3L9Ul8Dm1Jicsrg2ZO9uPHIxyuGXlTO5cXjps42UfYw" />
+      </div>
     );
   }
 } 
