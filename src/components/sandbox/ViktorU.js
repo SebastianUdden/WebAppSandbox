@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Henke extends React.Component {
+export default class ViktorU extends React.Component {
   render() {
     let hackathon = {
       color: 'OrangeRed',
@@ -17,7 +17,7 @@ export default class Henke extends React.Component {
     }
     return (
       <div>
-        <h1>Välkommen Henke,</h1>
+        <h1>Välkommen Viktor U,</h1>
         <h4>till denna upplaga av <span style={hackathon}>Hackaton!</span></h4>
         <ul>
           <li><span style={bolder}>Tid:</span> {info.time}</li>
@@ -31,4 +31,5 @@ export default class Henke extends React.Component {
       </div>
     );
   }
+
 }
