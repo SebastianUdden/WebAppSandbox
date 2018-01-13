@@ -80,7 +80,7 @@ export default class Sebbe extends React.Component {
     };
     let size = {
       fontSize: '25px',
-      width: '30px',
+      width: '100px',
       marginRight: '5px',
       backgroundColor: 'Green',
       padding: '5px',
@@ -99,8 +99,10 @@ export default class Sebbe extends React.Component {
         <p>Fria tester av JSX och React inom denna component...</p>
         <hr />
         <h4>Följ med på en oförglömglig resa till <span style={hackathon}>kodförståelse</span> med årets första <span style={hackathon}>hackaton</span></h4>
-        <button style={size} onClick={() => this.handleChange(this.state.value + 10)}>+</button>
-        <button style={size} onClick={() => this.handleChange(this.state.value - 10)}>-</button>
+        <button style={size} onClick={() => this.handleChange(this.state.value + 10)}>+10</button>
+        <button style={size} onClick={() => this.handleChange(this.state.value + 100)}>+100</button>
+        <button style={size} onClick={() => this.handleChange(this.state.value - 10)}>-10</button>
+        <button style={size} onClick={() => this.handleChange(this.state.value - 100)}>-100</button>
         <h2>{this.state.value}</h2>
         <img width={this.state.value} src="https://cdn.pixabay.com/photo/2016/08/17/22/22/pow-1601674_960_720.png" />
       </div>
