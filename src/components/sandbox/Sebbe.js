@@ -14,7 +14,7 @@ export default class Sebbe extends React.Component {
       time: '10-22',
       food: 'Pizza',
       beer: 'Frivilligt',
-    }
+    };
     return (
       <div>
         <h1>Välkommen Sebbe,</h1>
