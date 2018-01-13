@@ -1,13 +1,16 @@
 import React from 'react';
 
 const GenerateList = (props) => {
-    let bolder = {
+  let list = {
+    marginTop: '5px'
+  };
+  let bolder = {
         fontWeight: '700',
         color: 'MediumSpringGreen',
     };
 
     return (
-        <div>
+        <div style={list}>
             <ul>
                 {props.myList.map(function (listEntry) {
                     return <li key={listEntry.property}><span style={bolder}>{listEntry.property}</span>: {listEntry.value}</li>;

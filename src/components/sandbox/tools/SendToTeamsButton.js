@@ -7,14 +7,11 @@ export default class SendToTeamsButton extends React.Component {
       }
 
     handleClick() {
-        console.log(this.props.myMessage);
         alert(`Sent this message ${this.props.myMessage}`);
-
         sendMessageToTeams(this.props.myMessage);
-
     }
 
-    
+
     render() {
         let buttonStyle = {
             width: '300px',
