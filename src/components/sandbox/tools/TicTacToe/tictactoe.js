@@ -9,6 +9,8 @@ function Square(props) {
   );
 }
 
+
+
 class Board extends React.Component {
   renderSquare(i) {
     return (
@@ -78,7 +80,31 @@ export default class Game extends React.Component {
     });
   }
 
+  // const Restart = () => {
+  //   const desc = "Restart game";
+  //   return (
+  //       <button onClick={() => this.restartGame()}>{desc}</button>
+  //   );
+  // };
+
+
+
+  restartGame() {
+    this.setState({
+      history: [{
+        squares: Array(9).fill(null)
+      }],
+      stepNumber: 0,
+      xIsNext: true,
+    });
+  }
+
   render() {
+    let buttonStyle =
+      {
+        color: "black",
+        marginTop: '5px',
+      }
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
@@ -88,11 +114,13 @@ export default class Game extends React.Component {
         'Go to move #' + move :
         'Go to game start';
       return (
-        <li  key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        <li key={move}>
+          <button style={buttonStyle} onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });
+
+    let restart = <button style={buttonStyle} onClick={() => this.restartGame()}>Restart game</button>;
 
     let status;
     if (winner) {
@@ -108,6 +136,7 @@ export default class Game extends React.Component {
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
           />
+          <div>{restart}</div>
         </div>
         <div className="game-info">
           <div>{status}</div>
