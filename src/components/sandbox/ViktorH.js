@@ -68,7 +68,7 @@ export default class ViktorH extends React.Component {
       <hr />
       <h4>Följ med på en oförglömglig resa till <span style={hackathon}>kodförståelse</span> med årets första <span style={hackathon}>hackaton</span></h4>
       <input id="inputForm" type="text" className="form form-control" style={inputStyle} ref={input => this.message = input} />
-      <SendToTeamsButton myMessage={this.message}/>
+      <SendToTeamsButton myMessage={this.message.value}/>
       <hr />
       <Game/>
       <hr />
