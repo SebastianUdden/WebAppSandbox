@@ -80,15 +80,6 @@ export default class Game extends React.Component {
     });
   }
 
-  // const Restart = () => {
-  //   const desc = "Restart game";
-  //   return (
-  //       <button onClick={() => this.restartGame()}>{desc}</button>
-  //   );
-  // };
-
-
-
   restartGame() {
     this.setState({
       history: [{
