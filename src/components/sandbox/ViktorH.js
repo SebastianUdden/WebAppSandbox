@@ -1,6 +1,7 @@
 import React from 'react';
 import SendToTeamsButton from './tools/SendToTeamsButton';
 import GenerateList from './tools/List';
+import Game from './tools/TicTacToe/tictactoe'
 
 
 export default class ViktorH extends React.Component {
@@ -41,12 +42,6 @@ export default class ViktorH extends React.Component {
       fontSize: '130%'
     };
 
-    let info = {
-      time: '10-22',
-      food: 'Pizza',
-      beer: 'Frivilligt',
-    };
-
     let inputStyle = {
       width: '300px',
       marginTop: '5px',
@@ -74,9 +69,10 @@ export default class ViktorH extends React.Component {
       <hr />
       <h4>Följ med på en oförglömglig resa till <span style={hackathon}>kodförståelse</span> med årets första <span style={hackathon}>hackaton</span></h4>
       <input id="inputForm" type="text" className="form form-control" style={inputStyle} ref={input => this.message = input} />
+      <Game/>
       <img width="1000px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCTX4HgyT3L9Ul8Dm1Jicsrg2ZO9uPHIxyuGXlTO5cXjps42UfYw" />
       </div >
     );
   }
-}
+} 
 // <SendToTeamsButton myMessage={this.message.value}/>
