@@ -14,13 +14,13 @@ export default class Peter extends React.Component {
       time: '10-22',
       food: 'Pizza',
       beer: 'Frivilligt',
-    }
+    };
     return (
       <div>
         <h1>Välkommen Peter,</h1>
         <h4>till denna upplaga av <span style={hackathon}>Hackaton!</span></h4>
         <ul>
-          <li><span style={bolder}>Tid:</span> {info.time}</li>
+          <li><span style={{...bolder, ...hackathon}}>Tid:</span> {info.time}</li>
           <li><span style={bolder}>Mat:</span> {info.food}</li>
           <li><span style={bolder}>Öl:</span> {info.beer}</li>
         </ul>

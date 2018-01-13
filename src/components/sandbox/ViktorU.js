@@ -14,7 +14,7 @@ export default class ViktorU extends React.Component {
       time: '10-22',
       food: 'Pizza',
       beer: 'Frivilligt',
-    }
+    };
     return (
       <div>
         <h1>Välkommen Viktor U,</h1>
