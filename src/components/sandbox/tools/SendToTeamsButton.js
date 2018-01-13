@@ -7,7 +7,6 @@ export default class SendToTeamsButton extends React.Component {
       }
 
     handleClick() {
-        console.log(this.props.myMessage);
         sendMessageToTeams(this.props.myMessage.value);
     }
 

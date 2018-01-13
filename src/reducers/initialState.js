@@ -1,4 +1,5 @@
 export default {
+  test: "This is a test message",
   fuelSavings: {
     newMpg: '',
     tradeMpg: '',
