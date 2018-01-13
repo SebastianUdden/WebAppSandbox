@@ -6,9 +6,32 @@ export default class Alex extends React.Component {
 
     this.state = {
       count: 0,
-      name: "Alex"
+      name: "Alex",
+      hiddenLabel: true
     };
   }
+
+  displayLabel() { 
+    console.log("innanför displayLabel"); 
+    if (document.getElementById("firstNameInput").value === ""){
+      // document.getElementById("firstNameLabel").hidden = true;
+      this.setState({
+        count: 0,
+        name: "Alex",
+        hiddenLabel: true,
+      });
+    }
+    else{
+      console.log("innanför displayLabel -> else"); 
+      // document.getElementById("firstNameLabel").hidden = false;
+      this.setState({
+        count: 0,
+        name: "Alex",
+        hiddenLabel: false,
+      });
+    }
+  }
+
 
   handleClick() {
     alert(`Hej ${this._name.value}`);
@@ -45,6 +68,30 @@ export default class Alex extends React.Component {
       width: '20vw',
       backgroundColor: 'red',
     };
+
+    let buttonPlaceholder = {
+      borderColor: "green",
+      borderStyle: "solid",
+      borderWidth: "0 0 3px 0",
+      backgroundColor: "inherit",
+      outline: "none",
+      color: "#5B5B5B"
+    };
+
+    let styleLabel = {
+      fontSize: "10px",
+      marginBottom: "-5px",
+      color: "#5B5B5B",
+      visibility: this.state.hiddenLabel ? "hidden" : "visible",
+      transition: "width 2s",
+    };
+
+    let inputStyle = {
+      width: '20vw',
+      marginTop: '5px',
+      marginBottom: '5px',
+    };
+
     return (
       <div>
         <h1>Välkommen Alex,</h1>
@@ -63,6 +110,14 @@ export default class Alex extends React.Component {
         <h2>{this.state.count}</h2>
         <h2>{this.state.name}</h2>
         <hr />
+        <p id="firstNameGhostLabel" style={{...styleLabel, ...{display: "none"}}}>First name</p>
+        <p id="firstNameLabel" style={styleLabel}>First name</p>
+        <input id="firstNameInput" type="text" style={buttonPlaceholder} placeholder="First name" onChange={() => this.displayLabel()}/>  
+        <hr/>
+        <div>
+        <input id="inputForm" type="text" className="inputText" style={{...inputStyle, ...buttonPlaceholder}} onChange={() => this.handleChange()} required />
+        <span className="floating-label" style={{color:"#5B5B5B", left:"-20vw"}}>Message to teams</span>
+      </div>
         <img width="1000px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCTX4HgyT3L9Ul8Dm1Jicsrg2ZO9uPHIxyuGXlTO5cXjps42UfYw" />
       </div>
     );

@@ -83,3 +83,45 @@ td.fuel-savings-label { width: 175px; }
   background: #4CAF50; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
+
+// #firstNameLabel{
+//   transform:translateY(13px) scale(2);
+//   transition-duration: 2s;
+//   animation: 1s ease-in-out 0s 1 slideInFromRight;
+// }
+
+// #firstNameLabel:hover{
+//   transform:translateY(-5px) scale(1);
+// }
+
+input:focus ~ .floating-label,
+input:not(:focus):valid ~ .floating-label{
+  top: -28px;
+  left: -20vw;
+  font-size: 11px;
+  opacity: 1;
+  color: white
+}
+
+.inputText {
+  font-size: 14px;
+  width: 20vw;
+  height: 35px;
+  color: black;
+  padding-left: 4px;
+}
+
+.floating-label {
+  position: relative;
+  pointer-events: none;
+  top: 0px;
+  left: -19vw;
+  transition: 0.5s ease all;
+  color: black;
+}
+
+#inputForm::selection{
+background-color:rgba($color: #61828f, $alpha: 0.2);
+color:rgba($color: #eeeeee, $alpha: 0.2);
+}
+
