@@ -13,7 +13,7 @@ export default class Henke extends React.Component {
   handleCount() {
     this.setState({
       count: this.state.count + 1
-    }) 
+    });
   }
   render() {
     let input = {
@@ -57,7 +57,7 @@ export default class Henke extends React.Component {
         <input style={input} type="text" ref={input => this._name = input} className="form-control"/>
         <button style={button}  className="btn btn-success" onClick={() => this.handleClick()}>Click!</button>
         <button style={button}  className="btn btn-success" onClick={() => this.handleCount()}>+1!</button>
-        <h2>{this.state.count}</h2>
+        <h2 style={count}>{this.state.count}</h2>
         <hr />
         <img width="1000px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCTX4HgyT3L9Ul8Dm1Jicsrg2ZO9uPHIxyuGXlTO5cXjps42UfYw" />
       </div>
