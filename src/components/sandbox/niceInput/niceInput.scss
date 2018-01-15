@@ -1,0 +1,44 @@
+$transformedTextColor: #fff;
+$textColor: #5B5B5B;
+$textSelectionBackgroundColor: rgba($color: #61828f, $alpha: 0.2);
+$textSelectionColor: rgba($color: #eeeeee, $alpha: 0.2);
+
+.niceInput {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+input:focus ~ .floating-label,
+input:not(:focus):valid ~ .floating-label{
+  top: -28px;
+  left: -20vw;
+  font-size: 11px;
+  opacity: 1;
+}
+
+.inputText {
+  width: 20vw;
+  height: 35px;
+  padding-left: 4px;
+  border-color: green;
+  border-style: solid;
+  border-width: 0 0 3px 0;
+  font-size: 14px;
+  color: $textColor;
+  background-color: inherit;
+  outline: none;
+}
+
+.floating-label {
+  position: relative;
+  pointer-events: none;
+  top: 0px;
+  left: -19vw;
+  transition: 0.5s ease all;
+  color: $textColor;
+}
+
+.inputText::selection{
+  background-color:$textSelectionBackgroundColor;
+  color:$textSelectionColor;
+}

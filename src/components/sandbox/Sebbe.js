@@ -1,7 +1,7 @@
 import React from 'react';
 // import SendToTeamsButton from './tools/SendToTeamsButton';
 import GenerateList from './tools/List';
-
+import NiceInput from './niceInput/niceInput';
 export default class Sebbe extends React.Component {
   constructor(props) {
     super(props);
@@ -91,6 +91,8 @@ export default class Sebbe extends React.Component {
       <div>
         <h1>Välkommen Sebbe,</h1>
         <h4>till denna upplaga av <span style={hackathon}>Hackaton!</span></h4>
+        <NiceInput placeholderText={"First Name"} />
+        <NiceInput placeholderText={"Last Name"} />
         <input id="inputProperty" style={inputStyle} type="text" className="form form-control" placeholder="Property" ref={input => this.property = input} />
         <input id="inputValue" style={inputStyle} type="text" className="form form-control" placeholder="Value" ref={input => this.value = input} />
         <button id="saveListEntry" style={button} className="btn btn-success" onClick={() => this.SaveToList()}>Save</button>

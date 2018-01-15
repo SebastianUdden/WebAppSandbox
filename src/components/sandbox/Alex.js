@@ -1,4 +1,5 @@
 import React from 'react';
+import NiceInput from './niceInput/niceInput';
 
 export default class Alex extends React.Component {
   constructor(props) {
@@ -7,12 +8,13 @@ export default class Alex extends React.Component {
     this.state = {
       count: 0,
       name: "Alex",
-      hiddenLabel: true
+      hiddenLabel: true,
+      user: [{firstName: 'Alex', lastName: 'Arana'}]
     };
   }
 
-  displayLabel() { 
-    console.log("innanför displayLabel"); 
+  displayLabel() {
+    console.log("innanför displayLabel");
     if (document.getElementById("firstNameInput").value === ""){
       // document.getElementById("firstNameLabel").hidden = true;
       this.setState({
@@ -22,7 +24,7 @@ export default class Alex extends React.Component {
       });
     }
     else{
-      console.log("innanför displayLabel -> else"); 
+      console.log("innanför displayLabel -> else");
       // document.getElementById("firstNameLabel").hidden = false;
       this.setState({
         count: 0,
@@ -31,7 +33,6 @@ export default class Alex extends React.Component {
       });
     }
   }
-
 
   handleClick() {
     alert(`Hej ${this._name.value}`);
@@ -42,7 +43,27 @@ export default class Alex extends React.Component {
     this.setState({
       count: this.state.count +1,
     });
+  }
 
+  SaveUser() {
+    const currentUsers = this.state.users;
+    if (this.firstName.value !== "" && this.lastName.value !== "" && this.firstName.value && this.lastName.value && !currentUsers.some(x => x.firstName === this.firstName.value)) {
+      currentUsers.push({ firstName: this.firstName.value, lastName: this.lastName.value });
+
+      let currentState = this.state;
+      this.setState(Object.assign({}, currentState, {
+        users: currentUsers
+      }));
+      // document.getElementById("listError").hidden = true;
+    }
+    else if (currentUsers.some(x => x.firstName === this.firstName.value)) {
+      // document.getElementById("listError").innerText = "Same property already found";
+      // document.getElementById("listError").hidden = false;
+    }
+    else {
+      // document.getElementById("listError").innerText = "Value or property missing";
+      // document.getElementById("listError").hidden = false;
+    }
   }
 
   render() {
@@ -96,6 +117,9 @@ export default class Alex extends React.Component {
       <div>
         <h1>Välkommen Alex,</h1>
         <h4>till denna upplaga av <span style={hackathon}>Hackaton!</span></h4>
+        <NiceInput placeholderText={"First Name"} />
+        <NiceInput placeholderText={"Last Name"}/>
+        <button onClick={() => this.SaveUser()}>Add User</button>
         <ul>
           <li><span style={bolder}>Tid:</span> {info.time}</li>
           <li><span style={bolder}>Mat:</span> {info.food}</li>
@@ -112,7 +136,7 @@ export default class Alex extends React.Component {
         <hr />
         <p id="firstNameGhostLabel" style={{...styleLabel, ...{display: "none"}}}>First name</p>
         <p id="firstNameLabel" style={styleLabel}>First name</p>
-        <input id="firstNameInput" type="text" style={buttonPlaceholder} placeholder="First name" onChange={() => this.displayLabel()}/>  
+        <input id="firstNameInput" type="text" style={buttonPlaceholder} placeholder="First name" onChange={() => this.displayLabel()}/>
         <hr/>
         <div>
         <input id="inputForm" type="text" className="inputText" style={{...inputStyle, ...buttonPlaceholder}} onChange={() => this.handleChange()} required />

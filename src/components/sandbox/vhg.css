@@ -1,4 +1,4 @@
-input:focus ~ .floating-label,
+/* input:focus ~ .floating-label,
 input:not(:focus):valid ~ .floating-label{
   top: -28px;
   left: -20vw;
@@ -22,4 +22,4 @@ input:not(:focus):valid ~ .floating-label{
   left: -19vw;
   transition: 0.5s ease all;
   color: black;
-}
+} */
