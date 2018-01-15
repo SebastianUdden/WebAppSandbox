@@ -43,7 +43,6 @@ export default class ViktorH extends React.Component {
       document.getElementById("listError").innerText = "Value or property missing";
       document.getElementById("listError").hidden = false;
     }
-
   }
   render() {
     let hackathon = {
@@ -91,4 +90,4 @@ export default class ViktorH extends React.Component {
       </div>
     );
   }
-} 
+}

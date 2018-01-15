@@ -117,8 +117,7 @@ export default class Alex extends React.Component {
       <div>
         <h1>Välkommen Alex,</h1>
         <h4>till denna upplaga av <span style={hackathon}>Hackaton!</span></h4>
-        <NiceInput placeholderText={"First Name"} />
-        <NiceInput placeholderText={"Last Name"}/>
+
         <button onClick={() => this.SaveUser()}>Add User</button>
         <ul>
           <li><span style={bolder}>Tid:</span> {info.time}</li>

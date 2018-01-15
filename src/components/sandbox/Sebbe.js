@@ -34,7 +34,7 @@ export default class Sebbe extends React.Component {
     console.log('Change event completed')
   };
 
-  SaveToList() {
+  saveToList() {
     const currentListEntries = this.state.listEntries;
     if (this.property.value !== "" && this.value.value !== "" && this.property.value && this.value.value && !currentListEntries.some(x => x.property === this.property.value)) {
       currentListEntries.push({ property: this.property.value, value: this.value.value });
@@ -54,8 +54,12 @@ export default class Sebbe extends React.Component {
 
   }
 
-  SliderInput () {
+  sliderInput () {
     document.getElementById("demo").innerHTML = document.getElementById("myRange").value;
+  }
+
+  niceInputChange(event) {
+    console.log("Child value: " + event.target.value);
   }
 
   render() {
@@ -91,8 +95,8 @@ export default class Sebbe extends React.Component {
       <div>
         <h1>Välkommen Sebbe,</h1>
         <h4>till denna upplaga av <span style={hackathon}>Hackaton!</span></h4>
-        <NiceInput placeholderText={"First Name"} />
-        <NiceInput placeholderText={"Last Name"} />
+        <NiceInput onChange={this.niceInputChange} placeholderText={"First Name"} />
+        <NiceInput onChange={this.niceInputChange} placeholderText={"Last Name"} />
         <input id="inputProperty" style={inputStyle} type="text" className="form form-control" placeholder="Property" ref={input => this.property = input} />
         <input id="inputValue" style={inputStyle} type="text" className="form form-control" placeholder="Value" ref={input => this.value = input} />
         <button id="saveListEntry" style={button} className="btn btn-success" onClick={() => this.SaveToList()}>Save</button>
